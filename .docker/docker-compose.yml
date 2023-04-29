@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  sistema_de_turnos:
+    container_name: 'SistemaDeTurnos'
+    build:
+      context: .
+    volumes:
+      - ..:/home/volume
+      - sistema-de-turnos-bashhistory:/commandhistory
+    working_dir: /home/volume
+    restart: unless-stopped
+    command:
+      - /bin/sh
+      - -c
+      - sleep infinity
+
+volumes:
+  sistema-de-turnos-bashhistory:
