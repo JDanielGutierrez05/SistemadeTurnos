@@ -1,4 +1,5 @@
 const { app } = require('./Controllers/index')
+require('dotenv').config()
 
 // starting the server
 app.listen(3001, () => {

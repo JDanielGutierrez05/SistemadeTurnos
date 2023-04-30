@@ -1,6 +1,6 @@
 const Moment = require('moment')
 
-const parsingDates = (initialDate, endDate) => {
+function validateFields(initialDate, endDate, idServicio) {
   const initialValidDate = Moment(initialDate, 'DD/MM/YYYY', true).isValid()
   const endValidDate = Moment(endDate, 'DD/MM/YYYY', true).isValid()
 
@@ -8,10 +8,15 @@ const parsingDates = (initialDate, endDate) => {
     throw Error('Las fechas no estan en el formato valido o estan vacias')
   }
 
+  if (!idServicio) {
+    throw Error('el id del servicio no puede estar vacio')
+  }
+
   return {
     initialDate,
     endDate,
+    idServicio,
   }
 }
 
-module.exports = { parsingDates }
+module.exports = { validateFields }
