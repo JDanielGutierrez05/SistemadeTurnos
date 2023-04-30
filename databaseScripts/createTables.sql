@@ -1,7 +1,7 @@
 CREATE TABLE comercios(
     id_comercio INTEGER PRIMARY KEY,
     nom_comercio VARCHAR(100) NOT NULL,
-    aforo_maximo INT NOT NULL)
+    aforo_maximo INT NOT NULL);
 
 CREATE TABLE servicios(
     id_servicio INTEGER PRIMARY KEY,
@@ -12,7 +12,7 @@ CREATE TABLE servicios(
     duracion INT NOT NULL,
     CONSTRAINT fk_comercios
       FOREIGN KEY(id_comercio)
-	  REFERENCES comercios(id_comercio))
+	  REFERENCES comercios(id_comercio));
 
 CREATE TABLE turnos(
      id_turno INTEGER PRIMARY KEY,
