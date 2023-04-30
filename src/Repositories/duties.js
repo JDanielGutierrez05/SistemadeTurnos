@@ -1,8 +1,8 @@
 const { connect } = require('./connection')
 
-async function getAll() {
+async function createDuties() {
   const db = await connect()
-  return (await db.query('SELECT * FROM comercios')).rows
+  return (await db.query('select * from public.createduties();')).rows
 }
 
-module.exports = { getAll }
+module.exports = { createDuties }

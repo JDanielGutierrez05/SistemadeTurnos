@@ -3,7 +3,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const helmet = require('helmet')
 const { validateFields } = require('../Utilities/commons')
-const { getAll } = require('../Repositories/duties')
+const { createDuties } = require('../Repositories/duties')
 
 const app = express()
 app.use(bodyParser.json())
@@ -19,8 +19,7 @@ app.post('/turnos', async (request, response) => {
       request.body.fecha_fin,
       request.body.id_servicio
     )
-    const result = await getAll()
-    response.send(result)
+    response.send(await createDuties())
   } catch (error) {
     console.error(error)
     response.status(400).send({ error: error.message })
