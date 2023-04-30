@@ -21,12 +21,24 @@
         "yzhang.markdown-all-in-one"
       ],
       "settings": {
-        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+          "source.fixAll.markdownlint": true,
+          "source.organizeImports": true
+        },
         "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "cSpell.files": ["**/*.md", "**/*.ts"],
+        "cSpell.language": "en,es",
         "prettier.semi": false,
-        "prettier.singleQuote": true
+        "prettier.singleQuote": true,
+        "git.openRepositoryInParentFolders": "always",
+        "markdownlint.config": {
+          "default": true,
+          "MD024": false
+        },
+        "todo-tree.highlights.useColourScheme": true
       }
     }
-  }
-  // "postCreateCommand": "chmod +x /home/volume/.docker/entrypoint.sh && /home/volume/.docker/entrypoint.sh"
+  },
+  "postCreateCommand": "chmod +x /home/volume/.docker/entrypoint.sh && /home/volume/.docker/entrypoint.sh"
 }
