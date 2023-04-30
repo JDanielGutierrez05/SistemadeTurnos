@@ -7,12 +7,26 @@ services:
     volumes:
       - ..:/home/volume
       - sistema-de-turnos-bashhistory:/commandhistory
+    links:
+      - reports_database:database
     working_dir: /home/volume
     restart: unless-stopped
     command:
       - /bin/sh
       - -c
       - sleep infinity
+
+  reports_database: #if database connection doesn`t work: https://rauf-rahman.medium.com/connect-docker-and-mysql-in-right-way-95602f833cb0
+    container_name: 'ReportsDatabase'
+    image: mysql:8
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=test
+      - MYSQL_USER=test
+      - MYSQL_PASSWORD=test
+    restart: unless-stopped
 
 volumes:
   sistema-de-turnos-bashhistory:
