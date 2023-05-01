@@ -1,4 +1,4 @@
-CREATE or replace function CreateDuties()
+CREATE or REPLACE function CreateDuties()
   returns table (id INTEGER, nombre VARCHAR, aforo INT)
   as $$
 BEGIN 
