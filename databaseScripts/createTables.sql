@@ -4,7 +4,7 @@ CREATE TABLE comercios(
     aforo_maximo INT NOT NULL);
 
 CREATE TABLE servicios(
-    id_servicio INTEGER PRIMARY KEY,
+    id_servicio SERIAL PRIMARY KEY,
     id_comercio INTEGER,
     nom_servicio VARCHAR(100) NOT NULL,
     hora_apertura time NOT NULL,
@@ -15,7 +15,7 @@ CREATE TABLE servicios(
 	  REFERENCES comercios(id_comercio));
 
 CREATE TABLE turnos(
-     id_turno INTEGER PRIMARY KEY,
+     id_turno SERIAL PRIMARY KEY,
      id_servicio INTEGER,
      fecha_turno timestamp,
      hora_inicio timestamp,
