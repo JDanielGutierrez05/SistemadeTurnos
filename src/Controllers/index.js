@@ -14,12 +14,19 @@ app.use(helmet())
 
 app.post('/turnos', async (request, response) => {
   try {
-    fields = validateFields(
+    filters = validateFields(
       request.body.fecha_inicio,
       request.body.fecha_fin,
       request.body.id_servicio
     )
-    response.send(await createDuties())
+
+    response.send(
+      await createDuties({
+        initialDate: filters.initialDate,
+        endDate: filters.endDate,
+        serviceId: filters.serviceId,
+      })
+    )
   } catch (error) {
     console.error(error)
     response.status(400).send({ error: error.message })
