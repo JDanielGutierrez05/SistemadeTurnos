@@ -7,8 +7,8 @@ CREATE TABLE servicios(
     id_servicio SERIAL PRIMARY KEY,
     id_comercio INTEGER,
     nom_servicio VARCHAR(100) NOT NULL,
-    hora_apertura time NOT NULL,
-    hora_cierre time NOT NULL,
+    hora_apertura TIME NOT NULL,
+    hora_cierre TIME NOT NULL,
     duracion INT NOT NULL,
     CONSTRAINT fk_comercios
       FOREIGN KEY(id_comercio)
@@ -17,10 +17,10 @@ CREATE TABLE servicios(
 CREATE TABLE turnos(
      id_turno SERIAL PRIMARY KEY,
      id_servicio INTEGER,
-     fecha_turno timestamp,
-     hora_inicio timestamp,
-     hora_fin timestamp,
-     estado boolean,
+     fecha_turno DATE NOT NULL,
+     hora_inicio TIME NOT NULL,
+     hora_fin TIME NOT NULL,
+     estado BOOLEAN NOT NULL,
     CONSTRAINT fk_servicios
       FOREIGN KEY(id_servicio)
 	  REFERENCES servicios(id_servicio))
