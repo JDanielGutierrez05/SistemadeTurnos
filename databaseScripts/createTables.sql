@@ -7,8 +7,8 @@ CREATE TABLE servicios(
     id_servicio INTEGER PRIMARY KEY,
     id_comercio INTEGER,
     nom_servicio VARCHAR(100) NOT NULL,
-    hora_apertura timestamp,
-    hora_cierre timestamp,
+    hora_apertura time NOT NULL,
+    hora_cierre time NOT NULL,
     duracion INT NOT NULL,
     CONSTRAINT fk_comercios
       FOREIGN KEY(id_comercio)
