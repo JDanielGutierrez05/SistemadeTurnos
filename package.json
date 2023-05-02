@@ -1,0 +1,25 @@
+{
+  "name": "sistema-de-turnos",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JDanielGutierrez05/SistemadeTurnos.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://github.com/JDanielGutierrez05/SistemadeTurnos#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "helmet": "^6.1.5",
+    "moment": "^2.29.4",
+    "pg": "^8.10.0"
+  }
+}
