@@ -9,12 +9,18 @@ function validateFields(initialDate, endDate, serviceId) {
   }
 
   if (!serviceId) {
-    throw Error('el id del servicio no puede estar vacio')
+    throw Error('El id del servicio no puede estar vacio')
+  }
+
+  if (Moment(initialDate).toNow() > Moment(endDate).toNow()) {
+    throw Error('La fecha final no puede ser anterior a la fecha inicial')
   }
 
   return {
-    initialDate: Moment(initialDate, 'YYYY-MM-DD').toISOString(),
-    endDate: Moment(endDate, 'YYYY-MM-DD').toISOString(),
+    initialDate: new Date(
+      Moment(initialDate, 'DD/MM/YYYY').format('YYYY/MM/DD')
+    ),
+    endDate: new Date(Moment(endDate, 'DD/MM/YYYY').format('YYYY/MM/DD')),
     serviceId,
   }
 }

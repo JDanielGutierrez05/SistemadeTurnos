@@ -3,7 +3,7 @@ const { Pool } = require('pg')
 let connection
 
 async function connect() {
-  if (!connection || !connection.getConnection()) {
+  if (!connection) {
     const pool = new Pool({
       user: process.env.DB_USERNAME,
       host: process.env.DB_HOST,

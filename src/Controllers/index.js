@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const helmet = require('helmet')
-const { validateFields } = require('../Utilities/commons')
+const { validateFields } = require('../Validations/commons')
 const { createDuties } = require('../Repositories/duties')
 
 const app = express()
