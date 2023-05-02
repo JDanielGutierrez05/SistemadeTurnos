@@ -12,15 +12,16 @@ function validateFields(initialDate, endDate, serviceId) {
     throw Error('El id del servicio no puede estar vacio')
   }
 
-  if (Moment(initialDate).toNow() > Moment(endDate).toNow()) {
+  initialDate = new Date(Moment(initialDate, 'DD/MM/YYYY').format('YYYY/MM/DD'))
+  endDate = new Date(Moment(endDate, 'DD/MM/YYYY').format('YYYY/MM/DD'))
+
+  if (endDate < initialDate) {
     throw Error('La fecha final no puede ser anterior a la fecha inicial')
   }
 
   return {
-    initialDate: new Date(
-      Moment(initialDate, 'DD/MM/YYYY').format('YYYY/MM/DD')
-    ),
-    endDate: new Date(Moment(endDate, 'DD/MM/YYYY').format('YYYY/MM/DD')),
+    initialDate,
+    endDate,
     serviceId,
   }
 }
